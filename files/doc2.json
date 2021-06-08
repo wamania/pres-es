@@ -1,0 +1,25 @@
+{
+  "id": 318338,
+  "title": "Actua Tennis",
+  "content": "Nouvelle déclinaison sportive de la gamme ACTUA SPORTS de Gremlin Interactive, voici ACTUA TENNIS, un jeu de tennis tout en 3D. Le jeu est disponible sur Playstation et sur PC. Comme toujours, l'objectif est de participer aux principaux tournois de l'ATP afin de devenir numéro 1 mondial. Vous pourrez choisir un joueur parmi les 30 meilleurs mondiaux. L'espace de jeu est représenté entièrement en 3D, du court jusqu'aux juges de ligne et ramasseurs de balle. L'avantage de cette technique, c'est de nous offrir des angles de vue nombreux et variés. L'inconvénient, c'est que les graphismes sont très rustiques, sauf si l'on peut monter jusqu'à des résolutions très élevées (1024x768) qui malheureusement ralentissent considérablement l'action. La maniabilité des joueurs est assez approximative surtout en jouant au clavier. Il est assez difficile de relancer la balle puisque le joueur est difficilement contrôlable et va d'un bout du terrain à l'autre en une fraction de seconde. Les programmeurs ont compensé ce défaut en étant indulgent dans la gestion des collisions (la balle est parfois renvoyée même si la raquette de votre joueur n'est pas tout à fait en face!!).\n\nSinon, les animations sont particulièrement réalistes (il y a de la <lex>motion capture</lex> dans l'air). Ainsi, en attendant le service, les joueurs soufflent dans leur main ou font des petits mouvements de jambes, comme dans la réalité. Au changement de côté, les joueurs retendent leur raquette et font quelques assouplissements. Malheureusement, j'ai pu constater quelques gros <lex>bugs</lex> au cours d'une partie : quand l'échange s'arrête et que la balle est sous votre joueur, un <lex>bug</lex> se produit puisque le ramasseur de balle ne peut pas aller chercher la balle qui est sur vous (gros <lex>bug</lex> d'affichage). De même, il arrive qu'au cours du jeu certains échanges se passent à une vitesse très élevée (3 fois plus vite que la normale), puis le jeu revient à une vitesse classique à l'échange suivant : décevant. En conclusion, ACTUA TENNIS aurait pu être un bon jeu de tennis à condition que la jouabilité soit plus soignée et que les <lex>bugs</lex> soient éliminés.\n\nGraphismes\n\nDes graphismes corrects dans des résolutions élevées et si vous avez une carte 3D. En basse résolution, l'action est très fluide, mais les graphismes sont carrément horribles.\n12\n\nJouabilité\n\nLe point noir du jeu. Le joueur se contrôle difficilement. On arrive pourtant à renvoyer la balle, mais c'est tout, impossible de jouer finement en ajustant passings, lobs et volées de façon précise.\n10\n\nDurée de vie\n\nUne trentaine de joueurs (pourquoi ne pas en avoir mis plus ?) pas toujours très ressemblants aux vrais joueurs. Possibilité de jouer jusqu'à 4 en réseau ou de créer ses propres joueurs\n12\n\nBande son\n\nLes commentaires sont corrects, ainsi que les sons. La voix de l'arbitre est conforme à ce qu'on entend à la télé.\n12\n\nScénario\n\n-\n\nComme sur PSX, sur PC, ce jeu de tennis est assez décevant car pas très jouable. Les 5 vues différentes n'apportent finalement pas grand chose de nouveau au genre. ACTUA TENNIS n'est pas ce qui se fait de mieux en matière de jeux de Tennis. Dommage, car la motion capture semblait de qualité\n\n8",
+  "visibility": "home",
+  "note": "8",
+  "titre": "Actua Tennis",
+  "published_at": "1999-07-01T18:00:00.000+00:00",
+  "updated_at": "1999-07-01T18:00:00.000+00:00",
+  "lead_paragraph": "\nRusedski, Muster ou Sampras, vous allez pouvoir vous prendre pour un champion de la balle jaune sur votre PC avec ACTUA TENNIS, sorti cet automne.",
+  "image_src": "pc/a/actepc0b.jpg",
+  "platforms": [
+    {
+      "id": 10,
+      "name": "PC"
+    }
+  ],
+  "kinds": [
+    {
+      "id": 2560,
+      "name": "Sport"
+    }
+  ],
+  "modes": null
+}

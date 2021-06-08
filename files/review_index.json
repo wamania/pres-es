@@ -1,0 +1,94 @@
+{
+  "settings": {
+    "index": {
+      "refresh_interval": "1s",
+      "number_of_shards": "1",
+      "number_of_replicas": "1"
+    }
+  },
+  "mappings": {
+    "properties": {
+      "content": {
+        "type": "text"
+      },
+      "id": {
+        "type": "long"
+      },
+      "image_src": {
+        "type": "keyword",
+        "index": false
+      },
+      "kinds": {
+        "type": "nested",
+        "properties": {
+          "id": {
+            "type": "keyword"
+          },
+          "name": {
+            "type": "keyword"
+          }
+        }
+      },
+      "lead_paragraph": {
+        "type": "text"
+      },
+      "modes": {
+        "type": "nested",
+        "properties": {
+          "id": {
+            "type": "keyword"
+          },
+          "name": {
+            "type": "keyword"
+          }
+        }
+      },
+      "note": {
+        "type": "keyword",
+        "fields": {
+          "float": {
+            "type": "scaled_float",
+            "scaling_factor": 100
+          }
+        }
+      },
+      "platforms": {
+        "type": "nested",
+        "properties": {
+          "id": {
+            "type": "keyword"
+          },
+          "name": {
+            "type": "keyword"
+          }
+        }
+      },
+      "published_at": {
+        "type": "date"
+      },
+      "title": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "titre": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "updated_at": {
+        "type": "date"
+      },
+      "visibility": {
+        "type": "keyword"
+      }
+    }
+  }
+}

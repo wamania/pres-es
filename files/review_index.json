@@ -2,8 +2,34 @@
   "settings": {
     "index": {
       "refresh_interval": "1s",
-      "number_of_shards": "1",
+      "number_of_shards": "3",
       "number_of_replicas": "1"
+    },
+    "analysis": {
+      "filter": {
+        "lowercase": {
+          "type": "lowercase"
+        },
+        "asciifolding": {
+          "type": "asciifolding",
+          "preserve_original": "true"
+        }
+      },
+      "tokenizer": {
+        "standard_tokenizer": {
+          "type": "standard"
+        }
+      },
+      "analyzer": {
+        "default": {
+          "filter": [
+            "lowercase",
+            "asciifolding"
+          ],
+          "type": "custom",
+          "tokenizer": "standard_tokenizer"
+        }
+      }
     }
   },
   "mappings": {

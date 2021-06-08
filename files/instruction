@@ -4,6 +4,8 @@ wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.13.1-l
 ( https://www.elastic.co/fr/downloads/elasticsearch )
 extract
 
+( docker single/multi node : https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html )
+
 2/ Download cerebro
 
 wget https://github.com/lmenezes/cerebro/releases/download/v0.9.4/cerebro-0.9.4.tgz
@@ -23,4 +25,4 @@ bin/cerebro
 PUT review
 
 7/ add docs
-POST /review/_doc/
+POST /review/_doc/{id}

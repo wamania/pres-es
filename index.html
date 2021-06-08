@@ -52,8 +52,6 @@
             * Avant, 5 shards par défaut, maintenant 1 seul, le but étant de forcer à réfléchir son nombre de shards (chez AC, 3 shards)
             * La règle : juste ce qu'il faut ! (règle empirique, - de 600 shards par node, - de 20Go par shard)
 
-            ---
-
             ## Indexation
 
             ### Mapping
@@ -63,12 +61,17 @@
 
             ### Analysis
 
+            * Uniquement sur les champs text
             * Un analyzer = 1 tokenizer + plusieurs filters
+
+            ---
 
             ### Indexation
 
             * Par défaut, ES prévoit 10% de la RAM pour le buffer d'indexation
             * L'indexation est asynchrone, et doit être réparti sur tous les nodes
+            * Il existe des options pour accélérer l'indexation (bulk / remove flush)
+            * Pour ES search > indexation
 
 
           </script>

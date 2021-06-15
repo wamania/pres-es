@@ -1,0 +1,7 @@
+{
+    "require": {
+        "ext-json": "*",
+        "elasticsearch/elasticsearch": "^7.13",
+        "symfony/console": "^5.3"
+    }
+}

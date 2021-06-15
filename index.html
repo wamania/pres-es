@@ -38,7 +38,7 @@
 
             ---
 
-            ## Constitution d'un cluster
+            # Constitution d'un cluster
 
             * Pas de master / slave, juste un master élu dont le rôle est de manipuler les index et les shards
             * Auto équilibrage du cluster par le master en déplaçant les shards suivant la charges
@@ -52,27 +52,105 @@
             * Avant, 5 shards par défaut, maintenant 1 seul, le but étant de forcer à réfléchir son nombre de shards (chez AC, 3 shards)
             * La règle : juste ce qu'il faut ! (règle empirique, - de 600 shards par node, - de 20Go par shard)
 
-            ## Indexation
 
-            ### Mapping
+            ---
+
+            # Indexation
+
+            ## Mapping
 
             * Mapping dynamique/static/strict
             * Ne pas penser en terme de données, mais d'utilisation ! par exemple un id n'est pas un int mais un keyword
 
-            ### Analysis
+            ## Analysis
 
             * Uniquement sur les champs text
             * Un analyzer = 1 tokenizer + plusieurs filters
 
             ---
 
-            ### Indexation
+            ## Indexation
 
             * Par défaut, ES prévoit 10% de la RAM pour le buffer d'indexation
             * L'indexation est asynchrone, et doit être réparti sur tous les nodes
             * Il existe des options pour accélérer l'indexation (bulk / remove flush)
             * Pour ES search > indexation
 
+            ---
+
+            # Requêtage
+
+            ---
+
+            ## Concepts essentiels
+
+            * Le document en sortie est toujours le document d'entrée, sans altération possible
+            * scalar = array of scalar
+            No array in ES
+
+            --
+
+            * Malgré l'aspect objet du json d'entrée, ES applatit tous les champs en interne
+            ```json
+            platform: {
+                "id": 4566,
+                "name": "Psone",
+                "count": 4567
+            }
+            ```
+            devient
+            ```json
+            "platform.id": 4566,
+            "platform.name": "Psone",
+            "platform.count": "4567
+            ```
+
+            ---
+
+            ## filter/must/must_not/should
+            * Commence toujours par l'opérateur bool
+            * 2 contextes: filter / query
+            * Dans le contexte filter : pas de score, utilisation du cache
+            * Dans le contexte query : calcul d'un score, pas de cache
+
+            --
+
+            ### Filter
+            * Filtrage boolean oui/non
+            * Pas de score
+            * Utilisation du cache
+
+            --
+
+            ### Must
+            * Recherche textuelle (uniquement sur les champs text donc)
+            * Calcul d'un score
+            * Pas de cache
+
+            --
+
+            ### Must_not
+            * Malgré le nom, il est l'opposé de filter
+            * Pas de score
+            * Utilisation du cache
+
+            --
+
+            ### Should
+
+            * Dans un contexte filter = OR (boolean)
+            * Dans un contexte query = **amélioration** du score
+
+            ---
+
+            ## Nested
+
+            * Chaque nested est un document isolé.
+            * Les nested sont utilisables dans les aggrégations et les filtres, et doivent être appliqués dans les tris si besoin.
+
+            ---
+
+            ## scroll API
 
           </script>
         </section>

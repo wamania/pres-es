@@ -30,8 +30,8 @@
           <script type="text/template">
             # Menu
 
-            * Constitution d'un cluster (ajd) <!-- .element: class="fragment" data-fragment-index="1" -->
-            * Indexation (ajd) <!-- .element: class="fragment" data-fragment-index="2" -->
+            * Constitution d'un cluster <!-- .element: class="fragment" data-fragment-index="1" -->
+            * Indexation <!-- .element: class="fragment" data-fragment-index="2" -->
             * Requêtage <!-- .element: class="fragment" data-fragment-index="3" -->
             * Aggregations <!-- .element: class="fragment" data-fragment-index="4" -->
             * Analyze avancée <!-- .element: class="fragment" data-fragment-index="5" -->
@@ -151,6 +151,69 @@
             ---
 
             ## scroll API
+
+            ---
+
+            # Aggregation
+
+            3 types
+            * metrics
+            * Bucket
+            * Pipeline
+
+            ---
+
+            ## Metrics
+
+            * C'est le plus simple, min, max, avg, etc
+            * Quelques cas plus complexes, comme les percentiles
+
+            ---
+
+            ## Buckets
+
+            * Equivalent des "facettes" de solr
+            * Le bucket n'est pas l'aggregation, mais le "set" de documents répondant à chaque élément de l'aggregation
+
+            ---
+
+            ```json
+            {
+              "size": 0,
+              "aggs": {
+                "platforms_name": {
+                  "terms": {
+                    "field": "platforms.name"
+                  }
+                }
+              }
+            }
+            ```
+            <img src="img/buckets.png">
+
+            ---
+
+            ## Sub-aggregation
+
+            * S'applique sur **les documents** du bucket de l'aggregation principale
+            * Peuvent de type buckets ou metrics
+
+            ---
+
+            ## Nested / reverse_nested
+
+            * On change le document de référence, le bucket ne contient plus les documents "root", mais des documents "nested"
+            * reverse_nested permet de revenir au document original
+
+            ## Top hits
+
+            * Renvoi les documents contenus dans chaque élément d'aggregation
+            * Peut être trié et paginé
+
+            ## Pipeline
+
+            * Ne porte plus sur un bucket de document "root", mais sur la sortie directe d'une aggregation
+            * Principalement metrics ou tri/filtre d'un bucket
 
           </script>
         </section>

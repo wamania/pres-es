@@ -39,8 +39,11 @@ curl -X PUT "localhost:9200/review_1506" -H 'Content-Type: application/json' --d
 POST /review_1506/_doc/{id}
 
 ### Bulk
+```shell
 curl -X POST -o - "localhost:9200/_bulk?pretty" -H 'Content-Type: application/json' --data-binary '@body_bulk.txt'
+```
 
 ### Links
  - https://www.elastic.co/guide/en/elasticsearch/reference/current/query-filter-context.html
  - https://www.elastic.co/guide/en/elasticsearch/reference/master/tune-for-indexing-speed.html
+ - https://www.elastic.co/guide/en/elasticsearch/client/php-api/current/search_operations.html#_scrolling

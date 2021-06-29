@@ -3,7 +3,8 @@
     "index": {
       "refresh_interval": "1s",
       "number_of_shards": "3",
-      "number_of_replicas": "1"
+      "number_of_replicas": "1",
+      "max_result_window": 1000000000
     },
     "analysis": {
       "filter": {

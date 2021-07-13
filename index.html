@@ -196,7 +196,7 @@
             ## Sub-aggregation
 
             * S'applique sur **les documents** du bucket de l'aggregation principale
-            * Peuvent de type buckets ou metrics
+            * Peuvent être de type buckets ou metrics
 
             ---
 
@@ -205,15 +205,57 @@
             * On change le document de référence, le bucket ne contient plus les documents "root", mais des documents "nested"
             * reverse_nested permet de revenir au document original
 
+            ---
+
             ## Top hits
 
             * Renvoi les documents contenus dans chaque élément d'aggregation
-            * Peut être trié et paginé
+            * Peut être trié (notamment par _score) et paginé
+
+            ---
 
             ## Pipeline
 
             * Ne porte plus sur un bucket de document "root", mais sur la sortie directe d'une aggregation
             * Principalement metrics ou tri/filtre d'un bucket
+
+            ---
+
+            # Recherche avancée
+
+            ---
+
+            ## Analyze
+
+            * Un analyzer = un tokenizer + N filtres
+            * Tous les champs text sont analysés !
+            * On peut utiliser l'analyzer par defaut, ou spécifier les analyzer pour l'indexation et/ou la recherche
+
+            ---
+
+            * Un analyzer découpe un texte en tokens.
+            * Après analyze, on retrouve le principe de base de ES, le dictionnaire inversé composé des tokens
+            * AUCUNE logique à la recherche, tout à l'indexation. Bannir le querystring
+
+            ---
+
+            Pour tester un analyzer:
+            ```json
+            {
+            "text": "Ceci est un test d'orthographe",
+            "analyzer": "fr_trigram_analyzer"
+            }
+            ```
+
+            ---
+
+            * match / multi_match / dis_max
+            * autocomplete
+            * suggest / spell checking / phrase porposals
+
+            ---
+
+            ## Inner hits
 
           </script>
         </section>

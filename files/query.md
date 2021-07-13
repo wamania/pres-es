@@ -314,6 +314,7 @@ Reverse nested :
 }
 ```
 
+Top hits
 ```json
 {
   "query": {

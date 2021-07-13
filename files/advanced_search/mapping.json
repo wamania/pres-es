@@ -1,0 +1,370 @@
+{
+  "settings": {
+    "index": {
+      "refresh_interval": "1s",
+      "number_of_shards": "5",
+      "max_inner_result_window": "5000",
+      "max_result_window": "1000000",
+      "analysis": {
+        "filter": {
+          "shingle_concate": {
+            "max_shingle_size": "2",
+            "min_shingle_size": "2",
+            "token_separator": "",
+            "output_unigrams": "true",
+            "type": "shingle"
+          },
+          "lowercase": {
+            "type": "lowercase"
+          },
+          "truncate": {
+            "length": "10000",
+            "type": "truncate"
+          },
+          "asciifolding": {
+            "type": "asciifolding",
+            "preserve_original": "true"
+          },
+          "unique": {
+            "type": "unique"
+          },
+          "elision": {
+            "type": "elision",
+            "articles": [
+              "l",
+              "m",
+              "t",
+              "qu",
+              "n",
+              "s",
+              "j"
+            ]
+          },
+          "shingle": {
+            "max_shingle_size": "4",
+            "min_shingle_size": "2",
+            "type": "shingle"
+          },
+          "double_letter": {
+            "pattern": "([a-zA-Z])\\1",
+            "type": "pattern_replace",
+            "preserve_original": "true",
+            "replacement": "$1"
+          },
+          "reverse": {
+            "type": "reverse"
+          }
+        },
+        "analyzer": {
+          "fr_lowercase_concat_analyzer": {
+            "filter": [
+              "truncate",
+              "asciifolding",
+              "elision",
+              "shingle_concate",
+              "double_letter"
+            ],
+            "type": "custom",
+            "tokenizer": "lowercase_tokenizer"
+          },
+          "fr_default": {
+            "filter": [
+              "truncate",
+              "lowercase",
+              "asciifolding",
+              "elision",
+              "double_letter"
+            ],
+            "type": "custom",
+            "tokenizer": "standard_tokenizer"
+          },
+          "fr_edge_ngram_2_10_analyzer": {
+            "filter": [
+              "truncate",
+              "lowercase",
+              "asciifolding",
+              "elision"
+            ],
+            "type": "custom",
+            "tokenizer": "edge_ngram_2_10_tokenizer"
+          },
+          "fr_edge_ngram_2_10_concat_analyzer": {
+            "filter": [
+              "truncate",
+              "lowercase",
+              "asciifolding",
+              "double_letter",
+              "elision",
+              "shingle_concate"
+            ],
+            "type": "custom",
+            "tokenizer": "edge_ngram_2_10_tokenizer"
+          },
+          "fr_keyword_analyzer": {
+            "filter": [
+              "truncate",
+              "lowercase",
+              "asciifolding",
+              "elision",
+              "double_letter"
+            ],
+            "type": "custom",
+            "tokenizer": "keyword_tokenizer"
+          },
+          "fr_edge_ngram_2_10_one_token_analyzer": {
+            "filter": [
+              "truncate",
+              "lowercase",
+              "asciifolding",
+              "double_letter",
+              "elision"
+            ],
+            "type": "custom",
+            "tokenizer": "edge_ngram_2_10_one_token_tokenizer"
+          },
+          "fr_keyword_concat_analyzer": {
+            "filter": [
+              "truncate",
+              "lowercase",
+              "asciifolding",
+              "double_letter",
+              "elision",
+              "shingle_concate"
+            ],
+            "type": "custom",
+            "tokenizer": "keyword_tokenizer"
+          },
+          "fr_trigram_analyzer": {
+            "filter": [
+              "truncate",
+              "lowercase",
+              "elision",
+              "unique",
+              "shingle"
+            ],
+            "type": "custom",
+            "tokenizer": "standard_tokenizer"
+          },
+          "lowercase_analyzer": {
+            "filter": [
+              "truncate",
+              "unique",
+              "asciifolding",
+              "double_letter"
+            ],
+            "type": "custom",
+            "tokenizer": "lowercase_tokenizer"
+          },
+          "fr_reverse_analyzer": {
+            "filter": [
+              "truncate",
+              "lowercase",
+              "elision",
+              "unique",
+              "reverse"
+            ],
+            "type": "custom",
+            "tokenizer": "standard_tokenizer"
+          },
+          "reverse_analyzer": {
+            "filter": [
+              "truncate",
+              "lowercase",
+              "unique",
+              "reverse"
+            ],
+            "type": "custom",
+            "tokenizer": "standard_tokenizer"
+          },
+          "fr_lowercase_analyzer": {
+            "filter": [
+              "truncate",
+              "asciifolding",
+              "elision",
+              "double_letter"
+            ],
+            "type": "custom",
+            "tokenizer": "lowercase_tokenizer"
+          }
+        },
+        "tokenizer": {
+          "edge_ngram_2_10_tokenizer": {
+            "token_chars": [
+              "letter",
+              "digit"
+            ],
+            "min_gram": "1",
+            "type": "edge_ngram",
+            "max_gram": "15"
+          },
+          "keyword_tokenizer": {
+            "type": "keyword"
+          },
+          "standard_tokenizer": {
+            "type": "standard"
+          },
+          "edge_ngram_2_10_one_token_tokenizer": {
+            "token_chars": [
+
+            ],
+            "min_gram": "2",
+            "type": "edge_ngram",
+            "max_gram": "15"
+          },
+          "lowercase_tokenizer": {
+            "type": "lowercase"
+          }
+        }
+      },
+      "number_of_replicas": 0
+    }
+  },
+  "mappings": {
+    "properties": {
+      "browsable": {
+        "type": "boolean"
+      },
+      "data": {
+        "type": "object",
+        "enabled": false
+      },
+      "ends_at": {
+        "type": "date"
+      },
+      "entity_id": {
+        "type": "keyword"
+      },
+      "entity_type": {
+        "type": "keyword"
+      },
+      "facet": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "genres": {
+        "type": "keyword"
+      },
+      "gid": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "irankpopular": {
+        "type": "integer"
+      },
+      "label": {
+        "type": "text",
+        "fields": {
+          "autocomplete": {
+            "type": "text",
+            "analyzer": "fr_edge_ngram_2_10_analyzer",
+            "search_analyzer": "fr_lowercase_analyzer"
+          },
+          "keyword": {
+            "type": "keyword"
+          }
+        },
+        "copy_to": [
+          "search_label"
+        ]
+      },
+      "last_release": {
+        "type": "date"
+      },
+      "last_updated_at": {
+        "type": "date"
+      },
+      "original_label": {
+        "type": "text",
+        "fields": {
+          "autocomplete": {
+            "type": "text",
+            "analyzer": "fr_edge_ngram_2_10_analyzer",
+            "search_analyzer": "fr_lowercase_analyzer"
+          },
+          "keyword": {
+            "type": "keyword"
+          }
+        },
+        "copy_to": [
+          "search_label"
+        ]
+      },
+      "scores": {
+        "type": "object",
+        "enabled": false
+      },
+      "search_label": {
+        "type": "text",
+        "fields": {
+          "autocomplete": {
+            "type": "text",
+            "analyzer": "fr_edge_ngram_2_10_concat_analyzer",
+            "search_analyzer": "fr_lowercase_analyzer"
+          },
+          "autocomplete_full": {
+            "type": "text",
+            "analyzer": "fr_edge_ngram_2_10_one_token_analyzer",
+            "search_analyzer": "fr_keyword_analyzer"
+          },
+          "keyword": {
+            "type": "text",
+            "analyzer": "fr_keyword_concat_analyzer",
+            "search_analyzer": "fr_keyword_analyzer"
+          },
+          "lowercase": {
+            "type": "text",
+            "analyzer": "fr_lowercase_concat_analyzer",
+            "search_analyzer": "fr_lowercase_analyzer"
+          },
+          "reverse": {
+            "type": "text",
+            "analyzer": "fr_reverse_analyzer"
+          },
+          "trigram": {
+            "type": "text",
+            "analyzer": "fr_trigram_analyzer"
+          }
+        }
+      },
+      "starts_at": {
+        "type": "date"
+      },
+      "status": {
+        "type": "integer"
+      },
+      "tags": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "text_search_data": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        },
+        "copy_to": [
+          "search_label"
+        ]
+      },
+      "viewcount": {
+        "type": "integer"
+      }
+    }
+  }
+}
